@@ -1,0 +1,48 @@
+### Variáveis 
+@apiurl = http://localhost:8080/api
+@baseUrl = http://localhost:8080
+@bearerToken = eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJndWkiLCJleHAiOjE3NDA3ODI2ODB9.vh3m7CEzrQgKCEaEuNBkhCxlWS_4mT7oo9NRlY5yjEBqTUUCMx1eU6-7zvypp-p5
+
+### GET listar Produtos
+GET {{apiurl}}/produtos HTTP/1.1
+Authorization: Bearer {{bearerToken}}
+
+### GET listar Produto por ID
+GET {{apiurl}}/produtos/1 HTTP/1.1
+Authorization: Bearer {{bearerToken}}
+
+### Authorization: Bearer ACCESS-TOKEN (se fosse necessário, adicionariamos essa linha depois do Content-Type
+### Authorization: Basic username:password (exemplo com usuário/senha)
+### Precisamos deixar uma linha em branco para o BODY (se não dá erro de header inválido)
+
+### POST criar Produto
+POST {{apiurl}}/produtos HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{bearerToken}}
+
+{
+    "nome" : "Produto teste para ser removido",
+    "preco" : 1.00
+}
+
+
+### DELETE deletar Produto por ID
+DELETE {{apiurl}}/produtos/3 HTTP/1.1
+
+### POST criar novo usuário 
+POST {{baseUrl}}/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "gui",
+    "password": "admin"
+}
+
+### POST obter token (login) 
+POST {{baseUrl}}/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "gui",
+    "password": "$2a$10$6K/F6A5WAI3fktLDL3Zqg.V05kBihjXRVaKtLDKY64QBU4N9FlYua"
+}
